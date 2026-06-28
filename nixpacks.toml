@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ['nodejs_18', 'python311', 'ffmpeg', 'ghostscript', 'libreoffice']
+aptPkgs = ['ffmpeg', 'libreoffice', 'ghostscript', 'python3-pip']
+
+[phases.build]
+cmds = [
+    "npm install",
+    "pip3 install python-pptx lxml Pillow"
+]
+
+[phases.start]
+cmd = 'node bot.js'
