@@ -1,7 +1,7 @@
 node_modules/
 .env
 users.db
-*.pptx
 *.pdf
 *.jpg
 *.png
+# templates yuklansin (bu qatorni olib tashla)

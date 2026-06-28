@@ -12,7 +12,7 @@ const { PDFDocument } = require('pdf-lib');
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const ADMIN_ID = parseInt(process.env.ADMIN_ID || '0');
-const FREE_SLIDES = 3;
+const FREE_SLIDES = 999999; // Hammasi bepul
 
 if (!BOT_TOKEN || !GROQ_API_KEY) {
     console.error('❌ BOT_TOKEN va GROQ_API_KEY kerak!');
@@ -451,7 +451,7 @@ bot.hears(/🎨 (\d+)/, async (ctx) => {
     }
 
     const paket = getPaket(userId, count);
-    if (paket.narx > 0) {
+    if (false && paket.narx > 0) {
         // TODO: Payment logic
         await ctx.reply(`💳 ${paket.nom} paket: ${paket.narx} so'm
 To'lovni amalga oshiring...`, mainKeyboard(userId));
