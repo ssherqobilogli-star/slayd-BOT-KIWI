@@ -13,6 +13,7 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const ADMIN_ID = parseInt(process.env.ADMIN_ID || '0');
 const FREE_SLIDES = 999999; // Hammasi bepul
+const AI_CHAT_URL = process.env.AI_CHAT_URL || 'https://2-new-sprechen-mit-spass-production.up.railway.app';
 
 if (!BOT_TOKEN || !GROQ_API_KEY) {
     console.error('❌ BOT_TOKEN va GROQ_API_KEY kerak!');
@@ -59,6 +60,7 @@ const T = {
         buyPacket: "💳 Paket sotib olish",
         myProfile: "👤 Mening profilim",
         support: "📞 Qo'llab-quvvatlash",
+        aiChat: "🤖 AI Chat",
         back: "🔙 Orqaga",
         mainMenu: "🏠 Asosiy menyu",
         sinov: "Sinov",
@@ -92,6 +94,7 @@ const T = {
         buyPacket: "💳 Купить пакет",
         myProfile: "👤 Мой профиль",
         support: "📞 Поддержка",
+        aiChat: "🤖 AI Chat",
         back: "🔙 Назад",
         mainMenu: "🏠 Главное меню",
         sinov: "Пробный",
@@ -125,6 +128,7 @@ const T = {
         buyPacket: "💳 Buy package",
         myProfile: "👤 My profile",
         support: "📞 Support",
+        aiChat: "🤖 AI Chat",
         back: "🔙 Back",
         mainMenu: "🏠 Main menu",
         sinov: "Trial",
@@ -199,7 +203,7 @@ function getPaket(userId, count) {
 // ==================== KEYBOARDS ====================
 function langKeyboard() {
     return Markup.keyboard([
-        ['🇺🇿 O'zbekcha', '🇷🇺 Русский', '🇬🇧 English']
+        ["🇺🇿 O'zbekcha", '🇷🇺 Русский', '🇬🇧 English']
     ]).resize();
 }
 
@@ -207,6 +211,7 @@ function mainKeyboard(userId) {
     const l = pptxLabels(getLang(userId));
     return Markup.keyboard([
         [l.buyPacket, l.myProfile],
+        [Markup.button.webApp(l.aiChat, AI_CHAT_URL)],
         [l.support]
     ]).resize();
 }
