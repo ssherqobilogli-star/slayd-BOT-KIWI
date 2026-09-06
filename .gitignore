@@ -1,7 +1,0 @@
-node_modules/
-.env
-users.db
-*.pdf
-*.jpg
-*.png
-# templates yuklansin (bu qatorni olib tashla)
